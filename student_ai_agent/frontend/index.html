@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Student Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2 id="greeting"></h2>
+<div class="container">
+    <h1>🎓 AI Student Dashboard</h1>
+
+    <!-- TASK SECTION -->
+    <div class="card">
+        <h2>📌 Tasks</h2>
+        <input id="taskInput" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- PLANNER -->
+    <div class="card">
+        <h2>📅 Study Plan</h2>
+        <button onclick="loadPlan()">Generate Plan</button>
+        <ul id="planList"></ul>
+    </div>
+
+    <!-- CHAT -->
+    <div class="card">
+        <h2>🤖 AI Assistant</h2>
+        <input id="chatInput" placeholder="Ask something...">
+        <button onclick="sendMessage()">Send</button>
+        <p id="chatResponse"></p>
+    </div>
+
+    <!-- NOTES -->
+    <div class="card">
+        <h2>📝 Notes Summarizer</h2>
+        <textarea id="noteInput" placeholder="Paste notes..."></textarea>
+        <button onclick="summarize()">Summarize</button>
+        <p id="summary"></p>
+    </div>
+
+    <div class="card">
+    <h2>📊 Focus Score</h2>
+    <button onclick="getFocus()">Check Focus</button>
+    <p id="focusResult"></p>
+    </div>
+
+    <div class="card">
+        <h2>⚠️ Deadline Warnings</h2>
+        <button onclick="getWarnings()">Check Warnings</button>
+        <ul id="warningsList"></ul>
+    </div>
+
+    <div id="loader" style="display:none;">⏳ Loading...</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
