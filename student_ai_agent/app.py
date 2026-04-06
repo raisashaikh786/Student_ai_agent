@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import gradio as gr
+import uvicorn
 
 app = FastAPI()
 
-# Dummy state
 state = {"step": 0}
 
 @app.post("/reset")
@@ -22,11 +22,14 @@ def step(action: dict):
 def get_state():
     return state
 
-# Gradio UI
 def respond(message, history):
     return "AI Agent 🤖: " + message
 
 demo = gr.ChatInterface(fn=respond)
 
-# 🔥 THIS IS THE FIX
 app = gr.mount_gradio_app(app, demo, path="/")
+
+# 🔥 THIS FIXES YOUR ERROR
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=7860)
+    
