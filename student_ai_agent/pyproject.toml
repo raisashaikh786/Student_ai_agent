@@ -1,0 +1,16 @@
+[project]
+name = "ai-student-agent"
+version = "0.1.0"
+description = "AI Student Agent for OpenEnv Hackathon"
+authors = [
+  { name="Raisa Shaikh" }
+]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "gradio"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
