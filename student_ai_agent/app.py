@@ -1,18 +1,32 @@
 from fastapi import FastAPI
-from tasks import router as task_router
-from planner import router as planner_router
-from notes import router as notes_router
-from chat import router as chat_router
-from focus import router as focus_router
+import gradio as gr
 
 app = FastAPI()
 
-app.include_router(task_router)
-app.include_router(planner_router)
-app.include_router(notes_router)
-app.include_router(chat_router)
-app.include_router(focus_router)
+# Dummy state
+state = {"step": 0}
 
-@app.get("/")
-def home():
-    return {"message": "AI Student Agent Running 🚀"}
+@app.post("/reset")
+def reset():
+    global state
+    state = {"step": 0}
+    return {"state": state}
+
+@app.post("/step")
+def step(action: dict):
+    global state
+    state["step"] += 1
+    return {"state": state, "reward": 1.0, "done": False}
+
+@app.get("/state")
+def get_state():
+    return state
+
+
+# Gradio UI (optional)
+def respond(message, history):
+    return "AI Agent: " + message
+
+demo = gr.ChatInterface(fn=respond)
+
+demo.launch()
