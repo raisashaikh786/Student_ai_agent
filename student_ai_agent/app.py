@@ -22,11 +22,11 @@ def step(action: dict):
 def get_state():
     return state
 
-
-# Gradio UI (optional)
+# Gradio UI
 def respond(message, history):
-    return "AI Agent: " + message
+    return "AI Agent 🤖: " + message
 
 demo = gr.ChatInterface(fn=respond)
 
-demo.launch()
+# 🔥 THIS IS THE FIX
+app = gr.mount_gradio_app(app, demo, path="/")
