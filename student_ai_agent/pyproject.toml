@@ -1,15 +1,15 @@
 [project]
 name = "ai-student-agent"
 version = "0.1.0"
-description = "AI Student Agent for OpenEnv Hackathon"
-authors = [
-  { name="Raisa Shaikh" }
-]
 dependencies = [
   "fastapi",
   "uvicorn",
-  "gradio"
+  "gradio",
+  "openenv>=0.2.0"
 ]
+
+[project.scripts]
+server = "server.app:app"
 
 [build-system]
 requires = ["setuptools", "wheel"]
