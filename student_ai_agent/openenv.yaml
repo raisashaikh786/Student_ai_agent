@@ -1,0 +1,8 @@
+name: student-agent
+description: AI Student Agent
+version: 1.0
+
+endpoints:
+  reset: /reset
+  step: /step
+  state: /state
